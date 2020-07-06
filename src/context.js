@@ -1,18 +1,39 @@
 import React, { Component, createContext } from "react";
+import { storeProducts, detailProduct } from "./data";
 
 const ProductContext = createContext();
 //Provider
 
-//Consumer
-
 class ProductProvider extends Component {
+  state = {
+    products: storeProducts,
+    detailProduct,
+  };
+
+  handleDetail = () => {
+    console.log("hello from detail");
+  };
+
+  addToCart = () => {
+    console.log("Hello from add to cart");
+  };
+
   render() {
-    return;
-    <ProductContext.Provider value="hello from context">
-      {this.props.children}
-    </ProductContext.Provider>;
+    return (
+      <ProductContext.Provider
+        value={{
+          ...this.state,
+          handleDetail: this.handleDetail,
+          addToCart: this.addToCart,
+        }}
+      >
+        {this.props.children}
+      </ProductContext.Provider>
+    );
   }
 }
+
+//Consumer
 
 const ProductConsumer = ProductContext.Consumer;
 
