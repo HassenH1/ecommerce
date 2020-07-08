@@ -1,7 +1,7 @@
 import React from "react";
 
-function CartItem() {
-  return <div>Cart Item</div>;
+function CartItem({ item, value }) {
+  return <div>C</div>;
 }
 
 export default CartItem;
